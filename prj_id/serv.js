@@ -24,6 +24,6 @@ app.get('/', function(req, res){
 .get('/philosophie',function(req,res){
        res.sendfile('site/philosophie.html');
 });
-
+app.use(express.static('C:/Users/Utilisateurs/Public'));
 app.listen(1337);
 util.log('Server running at http://127.0.0.1:1337/');
