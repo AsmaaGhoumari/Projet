@@ -1,29 +1,19 @@
-var express = require('express'),
-util = require('util');
+var http = require("http"); //on importe les bibliothèques http et util, stockées dans des variables 
+var util = require("util");
+var server = {}; //Server object. This object is use to stock everything owned by the server.
+server.r = require("./router.js");
+server.port = 1337;//port que l'on écoute
+server.address = "127.0.0.1";//adresse locale de l'utilisateur
 
-var app = express();
-
-app.get('/', function(req, res){
- res.sendfile('index.html');
-})
-.get('/inscription',function(req,res){
-       res.sendfile('site/inscription.html');
-})
-.get('/missions',function(req,res){
-       res.sendfile('site/missions.html');
-})
-.get('/contact',function(req,res){
-       res.sendfile('site/nousContactez.html');
-})
-.get('/don',function(req,res){
-       res.sendfile('site/nousSoutenir.html');
-})
-.get('/redac',function(req,res){
-       res.sendfile('site/redac.html');
-})
-.get('/philosophie',function(req,res){
-       res.sendfile('site/philosophie.html');
-});
-app.use(express.static('C:/Users/Utilisateurs/Public'));
-app.listen(1337);
-util.log('Server running at http://127.0.0.1:1337/');
+/**
+ * This method is called each times a request arrives on the server
+ * @param req (Object) request object for this request
+ * @param resp (Object) response object for this request
+ */
+ 
+ //création du serveur 
+server.receive_request = function (req, resp) { 
+    server.r.router(req, resp);
+};
+http.createServer(server.receive_request).listen(server.port, server.address);		
+util.log("INFO - Server started, listening " + server.address + ":" + server.port); //affichage adresse locale et port écouté 
