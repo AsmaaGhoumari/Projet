@@ -10,14 +10,15 @@ var fs=require("fs");
 
 /**
 *This method is used to add a new news at the database =) 
-*@argument n (Object news) this object is discribed in gestionNews
+*@param n (Object news) this object is discribed in gestionNews
+* n = { author = "jean@gmail.com", title = "collecte vetements ", date = 5489625, statut = 1, content=" Bonjour , nous organisons .... merci à vous !!"}
 */
 exports.add_news=function (n){
-	var stmt= db.prepare("INSERT INTO news (ne_author, ne_title, ne_date, ne_statut, ne_path)VALUES ('"+n.auth+"','"+n.title+"','"+new Date()+"', 0 ,'"+ ?? +"')");
+	var stmt= db.prepare("INSERT INTO news (ne_author, ne_title, ne_date, ne_statut, ne_path)VALUES (\'"+n.auth+"\',\'"+n.title+"\',\'"+new Date()+"\', 0 ,\'"+ ?? +"\')");
 	stmt.run();
 	n.statut=0;//la news est enregistrée mais pas publiée
 	//util.log(" add news works !!!! ");
-	//email.sendMail("asmaa.ghoumari@gmail.com" , "pierre.aymeric.masse@gmail.com","add_user", "nouveau membre  : "+user.n_name +" "+ user.f_name+  " "+user.email + " "+user.passwd+ " "+user.role+"", cb);//envoie email  
+	//email.sendMail("asmaa.ghoumari@gmail.com" , "asmaa.ghoumari@gmail.com","add_user", "nouveau membre  : "+user.n_name +" "+ user.f_name+  " "+user.email + " "+user.passwd+ " "+user.role+"", cb);//envoie email  
 	stmt.finalize();
 	db.close();
 
@@ -25,13 +26,13 @@ exports.add_news=function (n){
 };
 
 /**
-*This method is used to delete an user in the database
+*This method is used to delete a news in the database
 *@param user (object) the user object
 */
 exports.delete_news = function (n){
 	var stmt = "DELETE * FROM news WHERE ne_path=" + n.path;	
 	db.run(stmt);
-	console.log("delete news rocks !! "); 
+	//console.log("delete news rocks !! "); 
 	stmt.finalize(); 
 	db.close();
 	};
@@ -81,6 +82,3 @@ exports.get_news=function(path){
 	db.close();
 	return article;
 };
-
-
-}
