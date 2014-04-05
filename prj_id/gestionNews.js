@@ -1,20 +1,17 @@
-var sqlite3=require("sqlite3").verbose();
+ar sqlite3=require("sqlite3").verbose(); //files needed 
 var db_n = require("./db_news.js");
 
-var n={};
-
-
+var n={};//news object empty
+var def = "NC" //path par defaut
 //initalisation objet news
 var n= function (a,t,d,s,p,c){
 	this.auth = (a) ? a : "NC";
 	this.title = (t) ? t : "NC";
-	this.date = (d) ? d : "0";
+	this.date = (d) ? d : 0 ;
 	this.statut= (s) ? s : "0";
-	this.path = (p) ? p : 0;
+	this.path = (p) ? p : def;
 	this.content = (c) ? c : "NC";
 };
-
-
 
 /**
 *This method is used to the the content of un article 
@@ -24,9 +21,14 @@ exports.get_content = function(path){
        fs.readFile(path, function (err, data) {
                  return data;
        });
-}
+};
 
-
+/**
+*This method is used to deal with the requests' user about news 
+*@param req (request Object) is the request the user send to the serveur 
+*@param res (response Object) is the response of the request 
+*@param path (String) it indicates the place where the content of the news is stored (ex : )
+*/
 exports.gestion_news = function(req,res, path){
 	var role;
 	var n; 
@@ -62,6 +64,5 @@ exports.gestion_news = function(req,res, path){
 		res.writeHead(200, {'Content-Type' : 'text/plain'});
 		res.end();     
     	});
-
    	}		
 };
