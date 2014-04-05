@@ -1,4 +1,4 @@
-ar sqlite3=require("sqlite3").verbose(); //files needed 
+var sqlite3=require("sqlite3").verbose(); //files needed 
 var db_n = require("./db_news.js");
 
 var n={};//news object empty
