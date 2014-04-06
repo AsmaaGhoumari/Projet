@@ -1,7 +1,8 @@
 var util = require("util"); 
 var url = require("url");
 var fs = require("fs");
-
+var news=require("./news.js");
+var user=require("./user.js");
 var post; //object 
 
 /**
