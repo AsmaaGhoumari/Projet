@@ -1,3 +1,4 @@
+
 var nodemailer = require("nodemailer");
 
 
@@ -5,8 +6,8 @@ var nodemailer = require("nodemailer");
  var smtpTransport = nodemailer.createTransport("SMTP",{
    service: "Gmail",
    auth: {
-       user: "test@gmail.com",
-       pass: "mdp" 
+       user: "asmaaghoumari@gmail.com",
+       pass: "ghoumariasmaa92" 
    }
 });
 
@@ -25,6 +26,13 @@ exports.sendMail = function (f, t , s, txt, cb) {
 };
 
 /**
+*This method is used to check if the email has been properly sent 
+*@param data (object) the data object 
+*@param cb (function) the callback function 
+*/
+//smtpTransport.sendMail(data, cb); 
+
+/**
 *This method is used to create a callback function 
 *@param e : error
 *@param r (String) response 
@@ -35,3 +43,6 @@ cb = function (e, r){
     } else {
         util.log("INFO - Message sent : " + r.message.substring(0,50));
 }};
+
+var bob = "azeazxeza@azeaze.rg";
+//srouter.sendMail(bob, bobby, coucou, azert, srouter.ex_cb);

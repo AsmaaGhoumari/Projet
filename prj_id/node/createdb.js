@@ -11,7 +11,7 @@ init_db.run = function () {
 };
 
 init_db.create = function () {
-	db.run("CREATE TABLE users (us_valid varchar(10),us_date char(19),us_role int, us_cookie char(22), us_email varchar(255) , us_passwd varchar(50), us_name varchar(100), us_firstname varchar(100), UNIQUE (us_email))");
+	db.run("CREATE TABLE users (us_valid varchar(10),us_date char(19),us_role int, us_cookie char(22), us_email varchar(255) NOT NULL PRIMARY KEY, us_passwd varchar(50), us_name varchar(100), us_firstname varchar(100)");
 	db.run("CREATE TABLE news (ne_author char(100), ne_date char(19), ne_statut int , ne_title char (50), ne_path char(100)"); 
 	db.close();
 };

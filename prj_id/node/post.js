@@ -3,6 +3,8 @@ var url = require("url");
 var fs = require("fs");
 var news=require("./news.js");
 var user=require("./user.js");
+var db_users = require("./db_users.js");
+
 var post; //object 
 
 /**
@@ -19,9 +21,6 @@ post_router = function (req, resp) {
         this.filetype = "";//initialisation du filetype (null)
         this.path = "";//initialisation du path(null)
         this.image_file = "jpg png jpeg bmp";//listing des formats que peut prendre la variable image_file
-        this.bdd = sqlite.openDatabaseSync(bddFile);//création de la table 
-        this.bdd.query("IF NOT EXIST CREATE TABLE users (us_name varchar(255),us_firstname varchar(255),us_sponsor varchar(255),us_login varchar(255),us_addmail varchar(255),us_right int ,us_id varchar(255),us_password varchar(255),us_time char("00-00-00 00:00:00".lenght)");
-        
     } else { //sinon message d'erreur affiché à l'écran 
         util.log("ERROR - A srouter object need a request and a response object");
         return;
@@ -41,30 +40,51 @@ post_router.prototype = {
         this.post_method();
     },
 
-post_method : 
-     function(){
+
+};
+
+exports.post_method = function(req, resp){
         var glob=''; 
-        this.req.on('data', function(data) {
+        req.on('data', function(data) {
              glob+= data; 
         });
-        this.req.on('end',function() {
-        var temp=glob.split("&");
+        req.on('end',function() {
+        /*var temp=glob.split("&");
         var action=temp[0].split("="); 
         var email=temp[1].split("="); 
         var module=temp[2].split("=");
         var path=temp[3].split("=");
-        //temp[4] : email d'un user pour fonction delete_other_user
-        var obj={action, email, module, path, temp};
+        var psw = temp[4].split("=");*/
+       var obj = JSON.parse(glob);
+       console.log(util.inspect(obj));
+      //  var obj={action , email, module, path, psw, temp}; //TODO modif objet -> parse
+        
+        if(obj.action=="ask_news"){
+        }
+        else if (obj.action == "first_login") {
+            console.log("first_log");
+            var c = db_users.first_log(this.email, this.password);
+            if (c) {
+                resp.writeHead(200, "OK", {"Content-Type": "text/json", "Set-Cookie" : c});
+                resp.write(JSON.stringify({resp: "ok"}));
+            } else {
+                resp.write(JSON.stringify({resp: "ko"}));
+            }
+            resp.end();
+        }
+        /*else if ((user.login(obj.email))&&(check_psw (obj.email, obj.psw))==1){ //s'il est connecté et si  le passeword est ok 
 
-        if (module[1] == 0){ // module user
-            user.run(obj);}
-        else if (module[1] == 1){ //module news
-            news.run(obj);}
-        else {console.log("Erreur : module inconnu"); }
+            if (module[1] == 0){ // module user on teste le module demandé 
+                user.run(obj);}
 
+            else if (module[1] == 1){ //module news
+                news.run(obj);}
+
+            else {console.log("Erreur : demande inconnue "); }
+        }*/
+        else console.log ("Veuillez vous vérifier votre mot de passe");
+    });
        /*
        res.writeHead(200, {'Content-Type' : 'text/plain'});
         res.end();        */
-        });
 };
-
