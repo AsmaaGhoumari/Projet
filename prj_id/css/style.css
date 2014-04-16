@@ -1422,8 +1422,14 @@
 	
 	#fourth	{
 		padding-top: 0px;
-			background: url('../images/fond7bis.JPG');
+		background: url('../images/fond7bis.JPG');
 		background-size: cover;
+	}
+	#don {
+		padding-top: 0px;
+		background: url('../images/fondbout3.JPG');
+		background-size: cover;
+
 	}
 	
 	
@@ -1556,4 +1562,52 @@
 		background-size:cover;
 	}
 
+	/*********************************************************************************/
+	/* Bouton ==> Aide                                                               */
+	/*********************************************************************************/
+	.btn_aide {
+		display:inline-block;
+		width:500px;
+		height: 500px;
+		line-height:50px;
+		text-align:center;
+		font-weight: bold;
+		vertical-align:text-top;
+		color:rgb(255, 255, 255);
+		text-decoration:none;
+		padding-bottom: 413px;
+	}
+	#btnA1{
+		background:url(../images/img_don.jpg) no-repeat;
+		background-size:cover;
+	}
+
+	#btnA2{
+		background:url(../images/fondPhilo3.jpg) no-repeat;
+		background-size:cover;
+	}
+
+	p1{
+
+		font-size: 20px;
+		text-align: justify;
+	}
+	.modalBody{
+
+		text-align: center;
+	}
+	p2{
+
+		font-size: 15px;
+		text-align: justify;
+	}
+
+	p3{
+		font-size: 20px;
+		text-align: center;
+
+
+	}
+
+	
 	
