@@ -36,11 +36,13 @@
 	}
 	h6
 	{
-		color: #666;
+		color: white;
 		margin: 0 0 1em 0;
 		font-weight: 100;
 		line-height: 1.5em;
 		position: left;
+		font-size: 16px;
+		font-style: italic;
 	}
 	
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
@@ -1444,21 +1446,39 @@
 	}
 	.philo_para{
 		height:550px;
-		width:500px;
+		width:550px;
 		margin-left: 5em;
 		border: 3px rgb(229, 240, 237) ridge;
 		overflow:scroll;
 	}
 	.bureau{
-		height:550px;
-		width:600px;
-		margin-left: 200;
+		height: 550px;
+		width: 630px;
+		margin-left: 732;
+		margin-top: -549;
 		border: 3px rgb(229, 240, 237) ridge;
 	}
 	.portrait{
 		text-align: left;
 		padding-left: 22px;
 	}
+	.pos1{
+		
+		margin-left: 121px;
+		margin-right: 120;
+	}
+    
+	.pos2{
+		margin-left: 95px;
+		margin-right: 8;
+	}
+	.pos3{
+		margin-right: 8;
+	}
+
+
+
+
 
 
 	/*********************************************************************************/
