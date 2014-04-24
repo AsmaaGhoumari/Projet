@@ -1447,14 +1447,14 @@
 	.philo_para{
 		height:550px;
 		width:550px;
-		margin-left: 5em;
+		margin-left: 8em;
 		border: 3px rgb(229, 240, 237) ridge;
 		overflow:scroll;
 	}
 	.bureau{
 		height: 550px;
 		width: 630px;
-		margin-left: 732;
+		margin-left: 880;
 		margin-top: -549;
 		border: 3px rgb(229, 240, 237) ridge;
 	}
@@ -1629,5 +1629,15 @@
 
 	}
 
-	
-	
+	/*********************************************************************************/
+	/* Bouton identification                                                         */
+	/*********************************************************************************/
+	.identification{
+		position: relative;
+		left: 45em;
+		bottom: 11em;
+	}
+	.myModalIdentif{
+		background:url(../images/pic01.jpg) no-repeat;
+		background-size:cover;
+	}

@@ -15,31 +15,32 @@
 		<script src="../js/jquery.min.js"></script>
 		<script src="../js/skel.min.js"></script>
 		<script src="../js/init.js"></script>
-		<script src="../js/modal.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
+		<script src="/js/modal.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-		
-			<link rel="stylesheet" href="../css/skel-noscript.css" />
-			<link rel="stylesheet" href="../css/style.css" />
-			<link rel="stylesheet" href="../css/style-wide.css" />
+		<script src="/js/monscript.js"></script>
 			
-		
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+			
+			<link rel="stylesheet" href="/css/skel-noscript.css"/>
+			<link rel="stylesheet" href="/css/style-wide.css" />
+			<link rel="stylesheet" href="/assets/css/styles.css" />
+			<link rel="stylesheet" href="/css/bootstrap.min.css" />
+			<link rel="stylesheet" href="/css/bootstrap-theme.min.css" />
+			<link rel="stylesheet" href="/css/style.css" />
+
 	</head>
-	<!-- Header -->	
+
+
 	<body>
-		<section id="header" class="dark">
-			<header>
-				 <link rel="stylesheet" href="../assets/css/styles.css" />
-			</head>
-			 	           
-			       
+		<section id="header" class="dark"> 
 			<header>
 					<h1>Bienvenue sur le site d'Idées Madagascar</h1>
 					<p>L'association humanitaire de <a href="http://esme.fr/">l'ESME Sudria</a></p>
-		    </header>	     
-			        	
+		     <!--Button identification-->
+		    		<button class="btn btn-primary identification" type="button" role="button" data-toggle="modal" data-target="#myModal">  S'identifier</button> 
+		    </header>
+			  	
+
 			<div class="container">
 							<nav>
 							 <ul class="fancyNav">
@@ -56,6 +57,40 @@
 			<video width="640" height="360" controls>
 							<source src="images/video.mp4" type="video/mp4">
 			</video>
+
+		
 		</section>
-	</body>			
+	</body>		
+
+<!-- Modal Button s'identifier-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        	<p>Déja inscrit ?</p>
+          <div class="input-group">
+          		<span class="input-group-addon">Email</span>
+				<input type="text" class="form-control" placeholder="Username">
+		  </div>
+		  <div class="input-group">
+				  <span class="input-group-addon">Mot De Passe</span>
+				  <input type="text" class="form-control" placeholder="Passeword">
+		  </div>
+		  <div class="row">
+		  	<div class="rowmemo">
+		  	<input type="checkbox" id="memo" name="memo"checked>
+		  	<label for="memo"><font size=2>Mémoriser mes informations</font> </label>
+		    </div>
+		  </div>
+		  <div class="submit box-center">
+		  	<button type="submit" value="Me connecter" class="btn validate" onclick="Mso.doOnClockSubmit()">Me connecter</button>
+    	  </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </html>

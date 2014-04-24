@@ -57,6 +57,9 @@ mission.on_click = function (ev){
 	else if (src.has_class("butt17")){
 		var elt = document.getElementsByClassName("modal-body")[0];
 	}
+	else if (src.has_class("identification")){
+		var elt = document.getElementsByClassName("modal-body")[0];
+	}
 };
 
 
