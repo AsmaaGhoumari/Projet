@@ -42,25 +42,22 @@ var user = function (n, p, e, pw, co, date, role, valid){
 *they check it thanks to the valid_user method.
 */
 exports.add_user = function(user){
-	var stmt= db.prepare("INSERT INTO users (us_name, us_firstname, us_email, us_passwd, us_role, us_valid)VALUES (\'"+user.n_name+"\',\'"+user.f_name+"\',\'"+user.email+"\',\'"+user.passwd+"\',\'"+user.role+"\', \'false\')");
+	var stmt= db.prepare("INSERT INTO users (us_name, us_firstname, us_email, us_passwd, us_role, us_valid)VALUES (\'"+user.n_name+"\',\'"+user.f_name+"\',\'"+user.email+"\',\'"+user.passwd+"\', "+ user.role +",\'false\')");
 	stmt.run();
-	user.valid=false;//compte reste bloqué  
-	//util.log("coucouuuuuu");
+	stmt.on("error", function(e){  console.log("ERROR - Database" + e); });
+	user.role=1;
+	user.valid=false;//compte reste bloqué
 	//email.sendMail("asmaa.ghoumari@gmail.com" , "pierre.aymeric.masse@gmail.com","add_user", "nouveau membre  : "+user.n_name +" "+ user.f_name+  " "+user.email + " "+user.passwd+ " "+user.role+"", cb);//envoie email  
-	stmt.finalize();
-	db.close();
 };
 
 
 /**
 *This method is used by the admin or the super admin.
-*they can change the informations about a new user and then valid his account 
+*they can valid the account of a new user 
 */
-exports.valid_user=function(user){//test de valid 
-	var stmt = db.prepare("UPDATE users SET us_role= \'"+ user.role + "\',  us_name = \'"+ user.n_name +"\', us_firstname= \'"+ user.f_name+ "', us_passwd= \'"+ user.passwd + "\', us_valid = \'true\' WHERE us_email = \'"+ user.email+"\'");
+exports.valid_user=function(e){   //test de valid 
+	var stmt = db.prepare("UPDATE users SET  us_valid = \'true\' WHERE us_email = \'"+ e+"\'");
 	stmt.run();
-	stmt.finalize();
-	db.close();
 	//email.sendMail("asmaa.ghoumari@gmail.com" , "asmaa.ghoumari@gmail.com","add_user", "validation membre  : user.n_name  user.f_name  user.email  user.passwd user.role", cb);
 };
 
@@ -68,42 +65,36 @@ exports.valid_user=function(user){//test de valid
 *This method controls the correspondance between the password recorded for an unique email, and what is typed 
 *it returns compt = 0 or 1 (the email is unique so 2 or more passwords cannot exist for a given user)
 */
-exports.check_psw = function(e,p){
+exports.check_psw = function(e,p, obj, cb){
 	var compt=0;
-	var a =" SELECT COUNT(*) as count FROM users WHERE us_email = \'"+e+"\'and psw = \'"+p+"\'";
-	a.run();
-    a.each(function(err, row) { // onextrait la date de la requête a 
+	var a ="SELECT COUNT(*) AS count FROM users WHERE us_email = \'"+e+"\'and psw = \'"+p+"\'";
+    db.each(a, function(err, row) { // onextrait la date de la requête a 
                     compt = row.count;
-                 });
-	 a.finalize();  
-	 db.close();
-	 return compt;
+            },
+    function(){ obj[cb](compt);  });
+	 
 };
 
-//ajouter un utilisateur à partir du compte admin ou superadmin A REFAIRE
+/**
+*This method allows the admin or the superadmin to add a new user 
+*@param user (Object) the user added
+*@param e (String) the email of the admin of the superadmin 
+*/
 exports.add_other_user=function(user, e){
-	if(user.email!=e && (user.role==2||user.role==3)){
+	if(user.email!=e){
 	var stmt= db.prepare("INSERT INTO users (us_name, us_firstname, us_email, us_passwd, us_role, us_valid)VALUES (\'"+user.n_name+"\',\'"+user.f_name+"\',\'"+user.email+"\',\'"+user.passwd+"\',\'"+user.role+"\', \'false\')");
 	stmt.run();
-	user.valid=true;
-	//console.log("add_other_user ok ");
-	stmt.finalize(); 
-	db.close();
-	}
-	else util.log("erreur de suppression de membre");
-}
+	stmt.on("error", function(e){  console.log("ERROR - Database" + e); });
+	user.valid=true; }
+};
 /**
 *This method allowed admin and superadmin to delete other users' accounts
 */
-exports.delete_other_user=function(e){
-	if(user.email!=e && (user.role==2||user.role==3)){
-	var stmt = "DELETE * FROM users WHERE us_email=" + e+"\'";	
-	db.run(stmt);
-	//console.log("delete_other_user ok ");
-	stmt.finalize(); 
-	db.close();
-	}
-	else util.log("erreur de suppression de membre");
+exports.delete_other_user=function(e, admin){
+	if(admin!=e){
+	db.run( "DELETE FROM users WHERE us_email=?",e);	
+	}	
+	else console.log("erreur de suppression de membre");
 };
 
 /**
@@ -111,127 +102,137 @@ exports.delete_other_user=function(e){
 *@param user (object) the user object
 *example : {n_name = "DUPONT", f_name = "JACK", email = "jack@gmail.com", password = "jackpassword", cookie = "jack@gmail.com_149858585, role =1, valid = true }
 */
-exports.delete_user = function (user){
-	var stmt = "DELETE * FROM users WHERE us_email=" + user.email+"\'";	
-	db.run(stmt);
-	//console.log("yooouh");
-	//email.sendMail();//envoie email admin  ?? 
-	stmt.finalize(); 
-	db.close();
+exports.delete_user = function (e){
+	db.run("DELETE  FROM users WHERE us_email= ? ", e);
+	db.on("error", function(e){  console.log("ERROR - Database" + e); });	
+	//email.sendMail(); //envoie au contact qui s'est supprimé
 };
 
-/**This method is used to change informations about an user
+/**
+*This method is used to change informations about an user
 *@param user (object) the user object
 *example : {n_name = "DUPONT", f_name = "JACK", email = "jack@gmail.com", password = "jackpassword", cookie = "jack@gmail.com_149858585, role =1, valid = true }
 */
-exports.modif_user = function(champs,email){
-	var auto_chps = "n_name, f_name, passwd ";
+modif_user = function(champs, value, email){
+	var auto_chps = "us_name, us_firstname, us_passwd ";
 	for( var z in champs){
-	if (auto_chps.indexOf(z)>=0){
-	var stmt=db.prepare("UPDATE users SET\'"+ z +" = \'"+champs[z]+"\' WHERE us_email =\'"+email+"\'");
-	stmt.run(); 
-	//email.sendMail(superadmain, user , Modifications , TEXT, cb); //confirmation des modif effectués par le user
-	stmt.finalize();
-	db.close();
+		if (auto_chps.indexOf(champs[z])>=0){
+			var stmt=db.prepare("UPDATE users SET \'"+ champs[z] +"\' = \'"+value[z]+"\' WHERE us_email =\'"+email+"\'");
+			stmt.run(); 
+			//email.sendMail(superadmain, user , Modifications , TEXT, cb); //envoi des modif effectuées par le user
+		}
+		else console.log(" Modification interdite");
 	}
-	else console.log(" Modification interdite");
-}
 };
  
 /**
-*
+*This method is used by the admin (or the super admin) to modify the informations about an user 
+*@param champ 
+*@param email 
 */ 
-exports.modif_other_user=function(champ, email){
-	if(user.email!=email && (user.role==2||user.role==3)){
-		modif_user(champ, email);
-		}
+exports.modif_other_user=function(champ,value, email , user){  
+	if(user.email!=email) {  modif_user(champ, value, email);  }
 	else console.log(" Modification interdite");
 };
 
 /**
 *This method is used to return all informations about an user 
-* @param email gives the id of an user to get the access of the database and display its informations.
+*@param email gives the id of an user to get the access of the database and display its informations.
 *it returns an user Object
 */
-exports.get_user = function(email){
-	var user;
- 	var a = ("SELECT * FROM users WHERE us_email=\'"+email+"\'"); 
- 	a.run();
-    a.each(function(err, row) { // onextrait la date de la requête a 
-                    auth = row;
-                 });
-	 a.finalize();  
-	 db.close();
- 	return user;
+exports.get_user = function(email, obj, finish ){
+	var auth={};
+ 	var a = "SELECT * FROM users WHERE us_email=\'"+email+"\'"; 
+    db.each(a, function(err, row) {  
+        auth = row;   
+    }, function(){ obj[finish](auth);    });	
+};
+
+/**
+*This method is used to return the name of a redactor 
+*@param email : id of the user 
+*/
+exports.get_name = function (email, obj, finish){
+	var n="";
+	var a="SELECT us_name FROM users WHERE us_email = \'"+email+"\'";
+	db.each(a, function(err, row){
+		n = row;
+	}, function (){obj [finish](n) ; });
+};
+/**
+* This method is testing the first login time 
+* If the user exists in the database, it set a cookie (call of set_cookie function)
+*If not it displays an error message 
+*@param e : the user's login (his/her email address)
+*@param p : the user's password
+*@param resp : the response send
+*/
+exports.first_log = function(e, p, resp){
+	var c;
+	var a = "SELECT us_email FROM users WHERE us_email=\'"+e+"\' AND us_passwd=\'"+p+"\'";
+    db.each(a, function(err, row) { // on extrait la date de la requête a 
+        console.log(console.inspect(row));
+        c = row.us_email;
+        if(c) {
+        	var coo = set_cookie(e);
+        	console.log(coo);
+    		resp.writeHead(200, "OK", {"Content-Type": "text/json", "Set-Cookie" : coo});
+            resp.write(JSON.stringify({resp: "ok"}));
+            resp.end();
+        } else {
+        	resp.writeHead(200, "OK", {"Content-Type": "text/json"});
+        	resp.write(JSON.stringify({resp: "ko"}));
+    	}
+        resp.end();
+    });	
 };
 
 
-
-exports.first_log = function(e, p){
-	var c;
-	var a = "SELECT us_email FROM users WHERE us_email=\'"+e+"\'AND us_passwd=\'"+p+"\'";
-	//a.run();
-    db.each(a, function(err, row) { // onextrait la date de la requête a 
-        c= row.us_email;
-    });	
-    //db.finalize();
-    db.close();
-    if(c) {return set_cookie(e);}
-    return false;
-    
-}
 /**
 *This method is used to check the timeout connexion of users
 *it uses the function timeout. It makes the difference between the last connexion date and the new one. (learn more to gestionUser.js)
 *if the connexion' user does not reach the timeout limit then it refreshes the last date connexion for the next time
 *else the user has to reconnect himself,  
 */
-//test si le cookie existe ou pas et lui en donne un sinon 
 exports.login = function (email){
 	var a = "SELECT us_cookie FROM users WHERE us_email=\'"+email+"\'";
-	a.run();
-    a.each(function(err, row) { // onextrait la date de la requête a 
+    db.each(a, function(err, row) { // onextrait la date de la requête a 
         c= row.us_cookie;
     });
-    a.finalize();
-    if (c!=NULL){
-    	is_log(c); }
-    else {
-    	set_cookie(email); }
-    db.close();
+    if (c!=NULL){ is_log(c);  }
+    else set_cookie(email); 
+    return true;
 };
-//test la validité du cookie 
+
+/**
+*This method tests the validity of the cookie, calling is_timeout function and refresh if false; 
+*@param id_cookie (cookie send by the user )
+* example : toto_0.2456788999999
+*/ 
 is_log = function(id_cookie){
 	var date; 
-    var a = "SELECT us_date FROM users WHERE us_cookie=\'"+id_cookie+"\'"; 
-    a.run();
-    a.each(function(err, row) { // onextrait la date de la requête a 
+    var stm = "SELECT us_date FROM users WHERE us_cookie=\'"+ id_cookie + "\'"; 
+    db.each(stm, function(err, row) { // onextrait la date de la requête a 
         date = row.us_date;
     });
-    a.finalize();
   	if(us.is_timeout(date)){
 	  		var stmt=db.prepare("UPDATE users SET us_date =\'"+ new Date().valueOf()+"\' WHERE cookie=\'"+id_cookie+"\'");
 	  		stmt.run();
 	  		stmt.finalize();
-	  		db.close();
-
-	  		  return true;		
+	  		return true;		
   	}
   	return false;
 };    
-
 
 /**
 *This method is used to set a cookie to an user
 *example : cookie = "toto@gmail.com_38565695"
 */
-exports.set_cookie=function(email){       
-	var cookie = this.user.us_email+"_"+Math.random();
- 	var stmt = "INSERT INTO users (us_cookie, us_date) VALUES (\'"+ cookie +"\', \'" + new Date().valueOf()+"\'";
- 	 stmt.run();
- 	 stmt.finalize();
- 	 db.close();
- 	 return cookie; 
+var set_cookie=function(email){       
+	var cookie = email+"_"+Math.random();
+ 	var stmt = "UPDATE users SET us_cookie=\'"+ cookie +"\', us_date=\'" + new Date().valueOf()+"\' WHERE us_email=\'" + email + "\'";
+	db.run(stmt);
+	return cookie; 
 };
 
 /**
@@ -239,16 +240,13 @@ exports.set_cookie=function(email){
 *@param id_cookie   this is what the function set_cookie generate
 *it retunrs the role (that is to say the level of actions' access) of the user 
 */
-exports.get_cookie=function(id_cookie){
-	var cookie;
-	var a="SELECT us_cookie FROM users WHERE email=\'"+id_email+"\'";
-	a.run();
- 	a.each(function(err, row) { 
-        cookie = row.us_cookie;
+exports.get_cookie=function(email){
+	var c;
+	var a="SELECT us_cookie FROM users WHERE us_email=\'"+email+"\'";
+ 	db.each(a, function(err, row) { 
+        c = row.us_cookie;
     });
-	db.close;
-	a.finalize();
-	return cookie; 
+	return c; 
 };
 
 /**
@@ -256,17 +254,12 @@ exports.get_cookie=function(id_cookie){
 *@param : email of an user
 *It reutrns the role of the user (his level of rights)
 */
-exports.get_role= function(id_email){
+exports.get_role= function(email){
 	var role;
-	var a="SELECT us_role FROM users WHERE email=\'"+id_email+"\'";
-	a.run();
- 	a.each(function(err, row) { 
+	var a="SELECT us_role FROM users WHERE us_email=\'"+email+"\'";
+ 	db.each(a, function(err,row){ 
+ 		//console.log(row);
        role = row.us_role;
     });
-	db.close;
-	a.finalize();
 	return role; 
 };
-
-//var user = { f_name:"asmaa", n_name: "toto"  };
-//add_user(user);

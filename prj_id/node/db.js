@@ -125,7 +125,7 @@ exports.get_user = function(email){
 	 a.finalize();  
 	 db.close();
  	return user;
-}
+};
 
 /**
 *This method is used to check the login of an user
@@ -173,7 +173,7 @@ get_cookie=function(id_cookie){
 	db.close;
 	a.finalize();
 	return role; 
-}
+};
 
 /**
 *This methode is used to get the role of an user
@@ -188,9 +188,8 @@ exports.get_role= function(id_email){
                  });
 	db.close;
 	a.finalize();
-	return role; 
-	
-}
+	return role; 	
+};
 
 
 //var user = { f_name:"asmaa", n_name: "toto"  };
