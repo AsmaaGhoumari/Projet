@@ -23,14 +23,36 @@
 	</head>	
 
 	<body>
-
 			<ul class="nav nav-tabs">
-			  <li class="active"><a href="#">Nouvelles propositions d'articles</a></li>
-			  <li><a href="#">Historique</a></li>
-			  <li><a href="#">Dernièrs articles</a></li>
-			  <li><a href="#">Listes des membres</a></li>
-			  <li><a href="#">Gestion des news</a></li>
+			  <li class="active"><a href="#article" data-toggle="tab">Nouvelles propositions d'articles</a></li>
+			  <li><a href="#historique" data-toggle="tab">Historique</a></li>
+			  <li><a href="#lastNews" data-toggle="tab">Dernièrs articles</a></li>
+			   <li><a href="#listeMembres" data-toggle="tab">Listes des membres</a></li>
+			  <li><a href="#Gestion" data-toggle="tab">Gestion des news</a></li>
 			</ul>
+
+	<!-- Tab panes -->
+			<div class="tab-content">
+			  <div class="tab-pane active" id="article">
+			  	<h1>Rédiger un article</h1>
+			  		<textarea rows="25" cols="200">			    
+			  		</textarea>
+			  		<button type="submit" class="btn btn-primary" id="submit">Submit</button>
+			  </div>
+			  <div class="tab-pane" id="historique">Historique des articles ici</div>
+			  
+			  <div class="tab-pane" id="lastNews">Derniers news publiés </div>
+			   
+			  <div class="tab-pane" id="listeMembres">les membres </div>
+			  
+			  <div class="tab-pane" id="Gestion">gestion des membres </div>
+
+
+
+			</div>
+
+
+
 
 
 	</body>

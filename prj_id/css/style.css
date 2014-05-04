@@ -1641,3 +1641,14 @@
 		background:url(../images/pic01.jpg) no-repeat;
 		background-size:cover;
 	}
+
+
+
+
+	#submit{
+		margin-top: 60;
+		margin-left: -100;
+		padding-left: 30;
+		padding-top: 10;
+		text-align: center;
+	}
