@@ -1173,7 +1173,7 @@
 	{
 		position: relative;
 		margin: 0;
-		background: url('../images/fond1.jpg');
+		background: url('/images/id10.JPG');
 		background-size: cover;
 		background-position: center center;
 		padding: 1em 0 14em 0;
@@ -1317,7 +1317,7 @@
                 width: 700px;
                 text-align: justify;
 
-                /*background: url('../images/fondPhilo3.jpg*/
+                background: url('/images/fondPhilo3.jpg');
                	background-size: cover;
               	background-position: center center;
                 color:black;
@@ -1339,7 +1339,7 @@
 		margin: 0;
 		text-align: center;
 		padding: 4em 0 8em 0;
-		/*box-shadow: inset 0 1px 0 0 #e6e6e6;*/
+		box-shadow: inset 0 1px 0 0 #e6e6e6;
 	}
 	
 		#footer .copyright
@@ -1416,7 +1416,7 @@
 	#second {
 		position: relative;
 		margin: 0;
-		background: url('../images/philo.JPG');
+		background: url('../images/fondbout3.JPG');
 		background-size: cover;
 		background-position: center center;
 		text-align: center;
@@ -1434,6 +1434,27 @@
 
 	}
 	
+	#philo {
+			padding-top: 0px;
+		background: url('../images/fond7bis.JPG');
+		background-size: cover;
+
+	}
+
+	#admin {
+			padding-top: 0px;
+		background: url('../images/fond7bis.JPG');
+		background-size: cover;
+
+	}
+
+	#redac {
+			padding-top: 0px;
+		background: url('../images/fond7bis.JPG');
+		background-size: cover;
+
+	}
+
 	
 	.panel_box{
 		position: raltive;

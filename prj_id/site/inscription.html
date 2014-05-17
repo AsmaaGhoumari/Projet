@@ -1,177 +1,92 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- langue anglaise -->
+<html lang="en"> 
 
+	<head>		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">		
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<script src="/js/monscript.js"></script>
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/modal.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="/css/inscription.css" />
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/assets/css/styles.css" />
+		<script src="/js/inscription.js"></script>	
+	</head>
 
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<body class=" background-picture">			
+			<section id="philo"  class="main">				
+				<div class="container padd-menu">
+				      <nav>
+					<ul class="fancyNav">
+						<li id="home"><a href="/index.html" class="homeIcon">Home</a></li>
+					    <li id="nouvelles"><a href="/site/news.html">News</a></li>
+					    <li id="Philo"><a href="/site/philo.html">Philosophie</a></li>
+					    <li id="mission"><a href="/site/mission.html">Missions</a></li>
+					    <li id="partenaires"><a href="/site/partenaires.html">Partenaires</a></li>
+					    <li id="contact"><a href="/site/contact.html">Contactez-nous</a></li>
+					    <li id="aide"><a href="/site/don.html">Faites un don</a></li>
+					</ul>
+				</nav>	
+			</div>
 
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-<link rel="stylesheet" href="bob.css"></link> 
-
-
-
-<meta name="keywords" content="Idées_madagascar, ESME Sudria, association,solidaire, humanitaire, utile, ethique,aventure, different, missions, developpement, aide, durable, aide_au_developpement, developpement_durable, volontariat, excursions, voyage_humanitaire,ontariat_humanitaire, vacances_solidaires, mission_humanitaire,aide_au_developpement, association_humanitaire, madagascar, education, ecole">
-</head>
-
-<body>
-<!-- bouton j'aime -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-
-<!-- Ligne du dessous : bandeau Inscrption -->
-<div class="row">
- 	<div class="col-md-8 col-md-offset-4">
-	<!-- <p class="col-sm-12 btn-danger btn-lg">NEWS</p> -->
-	<button type="button" class="col-sm-12 btn btn-danger btn-lg" ><p class="pull-left">INSCRIPTION</p></button>
-	</div>
-</div>
-
-
-
-
-<div class="row">
-  <div class="col-xs-2 col-md-3">
-  <!-- Block de boutons pour gérer les pages du site -->
- 	<div class="center-block">
-		<a href="index.html"><button type="button" class="btn btn-danger btn-lg btn-block">News</button></a><br>
-		<a href="philosophie.html"><button type="button" class="btn btn-danger btn-lg btn-block">Philosophie</button></a><br>
-		<a href="missions.html"><button type="button" class="btn btn-danger btn-lg btn-block">Nos Missions</button></a><br>
-		<a href="nousSoutenir.html"><button type="button" class="btn btn-danger btn-lg btn-block">Nous Soutenir</button></a><br>
-		<a href="nousContactez.html"><button type="button" class="btn btn-danger btn-lg btn-block">Contactez-nous</button></a><br>
-	</div>
-   </div>
-   <div class="col-md-5" "col-md-offset-6">
-		<form role="form">
-		<div class="form-group">
-		<br><br>
-		<label for="exampleInputEmail1">UserName</label>
-		<input type="email" class="form-control" id="exampleInputEmail1" placeholder="UserName">
-		</div>
-		</form>
-		<div class="input-group input-group-lg">
-		<br>
-		<form role="form">
-		 <div class="form-group">
-		<label for="exampleInputEmail1">Email address</label>
-		<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-		</div>
-		<br>
-		<div class="form-group">
-		<br>
-		<label for="exampleInputEmail1">Password</label>
-		<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Password">
-		</div>
-		</form>
-		
-	</div>
-</div>
-
-
-
-
-<!-- Sur 2 lignes  : Affichage pour l'inscription, champs de saisie et bouton d'acquittement -->
-<div class="row">
- <div class="col-xs-2 col-md-4">
-
-	  <form role="form">
-	  <div class="form-group">
-		<div class="row">
-			<div class="col-md-9 col-md-offset-1">
-    		<label for="adresseMail">Inscription Newsletter</label>
-		</div>
-		</div>
-		<div class="row">
-		<div class="col-md-9 col-md-offset-1">
-    			<input type="email" class="form-control" id="adMail" placeholder="Entrer mail">
-		</div>
-		<div class="col-md-1">
- 	 		<button type="submit" class="btn btn-default ">Ok</button>
-		</div>
-		</div>
-	</div>
-	</div>
- </div>
-</div>
-
-<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-		<div class="modal-content">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			<h4 class="modal-title" id="myModalLabel">Identification</h4>
-		</div>
-		<div class="modal-body">
-			<form class="form-horizontal" role="form">
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control input-mail" id="inputEmail3" placeholder="Email">
-    </div>
-  </div>
-  <p><br></p>
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Se souvenir de moi
-        </label>
-      </div>
-    </div>
-  </div>
- <div class="row"><div class="col-md-12"><p class="pull-right"><a href= data-toggle="modal" data-target="#myModal2">M'inscrire</a></p>
- </div></div>
-</form>			
-		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-			<button type="button" class="btn btn-primary">Valider</button>
-		</div>
-		</div>
-		</div>
-		</div>
-	</div>	
+			<div class="row">
+				<div class="col-sm-5 col-sm-offset-3">
+					<form>
+						<br>
+						<div class="form-group">
+						    <label for="n_name">Entrez votre nom</label>
+						    <input type="text" class="form-control" id="n_name">
+					  	</div>
+					  	<div class="form-group">
+						    <label for="f_name">Entrez votre prénom</label>
+						    <input type="text" class="form-control" id="f_name">
+					  	</div>
+					  	<div class="form-group">
+						    <label for="mail">Entrez votre adresse mail</label>
+						    <input type="email" class="form-control" id="mail">
+					 	</div>
+					  	<div class="form-group">
+						    <label for="pwd">Entrez votre mot de passe</label>
+						    <input type="password" class="form-control" id="pwd">
+					  	</div>	
+					  	<label class="checkbox-inline">
+							  <input type="radio" name="statu"  value="0"> Elève
+						</label>
+						<label class="checkbox-inline">
+							  <input type="radio" name="statu"  value="1"> Membre de l'Association
+						</label>
+						<label class="checkbox-inline">
+							  <input type="radio" name="statu"  value="0"> Entreprise
+						</label>
+						<label class="checkbox-inline">
+							  <input type="radio" name="statu"  value="0">Autre
+						</label>
+						<br>		 
+					</form>
+					<br>
+					  	<button class="btn btn-default" id="send">Valider</button>
+					  	<button class="btn btn-default" id="send">Annuler</button>		
+			</div>
+	 </div>
 
 	
-<!-- Modal2 -->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal2" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        YO
-		
-		
-		
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<script src="bootstrap/js/bootstrap.js"></script>
-</body> <!-- Fin du body -->
 
-</html> <!-- Fin -->
+<!--FOOTER-->
+			<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/idees.madagascar?fref=ts" class="fa fa-facebook solo"><span>Facebook</span></a></li>
+						</ul>
+						<div class="copyright">
+							<ul class="menu">
+								<li>&copy; Untitled. All rights reserved.</li>
+								<li>Design: <a href="http://html5up.net/">Ben Naceur Sonia - Ghoumari Asmaa </a></li>
+							</ul>
+						</div>
+			</section>	
+		</section>
+	</body>
+</html> 
