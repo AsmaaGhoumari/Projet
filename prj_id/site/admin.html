@@ -36,10 +36,269 @@
 					<li><a href="#new_user" data-toggle="tab">Nouveaux membres</a></li>
 					<li><a href="#all_user" data-toggle="tab">Tous les membres</a></li>
 					<li><a href="#my_account" data-toggle="tab">Mon compte</a></li>
+					<li><a href="#manual" data-toggle="tab">Manuel d'aide</a></li>
 					
 				</ul>
 
 				<!-- Tab panes -->
+
+				<div class="tab-content" >
+					<div class="tab-pane"id="manual">
+				<p>
+					Table des matières<br>
+					<br>
+					Introduction<br>
+						<br>
+					Technologies et liens utiles<br>	
+					<br>
+					Quels sont les acteurs de ce site ?	<br>
+					<br>
+					Droits d’accès	<br>
+					<br>
+					Ajout de missions<br>
+					<br>
+					Modification des membres de l’association<br>
+					<br>
+					Modifications des partenaires<br>
+					<br>
+					Pour remplacer un partenaire par un autre<br>
+					<br>
+					Pour supprimer un partenaire<br>
+					<br>
+					Pour ajouter un partenaire<br>
+					<br>
+					Administrateur	<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					Introduction<br>
+
+					Ce manuel pratique a pour but d’expliquer le fonctionnement du site et de permettre à l’équipe de bénévoles d’Idées Madagascar de le maitriser au mieux.<br>
+					Attention certaines parties expliquent comment modifier des parties du site, il ne faut modifier QUE les endroits indiqués comme illustrés dans les exemples ! <br> 
+
+					<br>
+					<br>
+
+
+					Technologies et liens utiles <br>
+
+					Le site web a été développé en HTML5 à travers le framework Bootstrap pour la gestion du css c’est-à-dire la gestion de l’apparence des divers éléments composant la page internet. <br>
+					Bootstrap vous permet de gérer votre page comme une grille où vous organisez les éléments comme des blocs. Pour plus de détails voici le lien vers le site expliquant en détails tout son fonctionnement : http://getbootstrap.com/<br>
+
+					Si vous rencontrez des problèmes avec le HTML ou le css voici un site de tutorat : http://www.w3schools.com/ ou encore http://fr.openclassrooms.com/informatique/html/cours<br>
+					<br>
+
+
+					Quels sont les acteurs de ce site ? <br>
+					Les visiteurs (internes ou externes à l’école)… et vous bien sûr !! <br>
+					Les visiteurs peuvent « surfer » sur le site et vous envoyer un mail pour toute question. <br>
+					De plus les membres de l’association inscris sur le site peuvent poster des articles qui apparaitront sur la page « news » et qui vous permettront  de tenir les visiteurs tels que les sponsors,  informés. <br>
+					<br>
+
+					Droits d’accès<br>
+					Tous les membres n’ont pas les mêmes droits d’accès. En effet il existe les rôles de rédacteur et d’administrateur. <br>
+					Les rédacteurs peuvent écrire des articles qui passent par la validation de l’administrateur avant publication sur le site. 
+					L’administrateur peut modifier, ajouter ou supprimer des rédacteurs et des inscrits. <br>
+					<br>
+					Ajout de missions<br>
+
+					Allez dans le dossier site, ouvrez le fichier mission.html. <br>
+					Placez-vous à la suite du code suivant  : <br>
+					….
+					<PRE><button class="btn_mission butt12" type="button" id="bouton12" role="button" data-toggle="modal" data-target="#myModal11">Mission 2009</button><br>
+						     <button class="btn_mission butt13" type="button" id="bouton13" role="button" data-toggle="modal" data-target="#myModal12">Mission 2010</button><br>
+						     <button class="btn_mission butt14" type="button" id="bouton14" role="button" data-toggle="modal" data-target="#myModal13">Mission 2011</button><br>
+						     <button class="btn_mission butt15" type="button" id="bouton15" role="button" data-toggle="modal" data-target="#myModal14">Mission 2012</button><br>
+						     <button class="btn_mission butt16" type="button" id="bouton16" role="button" data-toggle="modal" data-target="#myModal15">Mission 2013</button><br>
+						     <button class="btn_mission butt17" type="button" id="bouton17" role="button" data-toggle="modal" data-target="#myModal16">Mission 2014</button><br>
+					</PRE>
+							
+					AJOUTER LE CODE QUI VA SUIVRE ICI<br>
+
+					</span>		<br>
+					<!-- Footer --><br>
+					<br>
+					Ajouter à cet emplacement :<br>
+					<!--<button class="btn_mission buttX" type="button" id="boutonX" role="button" data-toggle="modal" data-target="#myModal(X-1)">Mission ANNEEYYYY</button><br>
+					Puis descendez à la fin du fichier vous trouverez les lignes suivantes : <br>
+					<!-- NOUVEAU MODAL : X = NUMERO DU MODAL ICI 16<br>
+					     <div class="modal fade" id="myModal16" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><br>
+					         <div class="modal-dialog"><br>
+					              <div class="modal-content"><br>
+					                  <div class="modal-header"><br>
+					                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					                             <h4 class="modal-title" id="myModalLabel">Projets réalisés</h4>
+					                 </div>
+					            <div class="modal-body">
+					      	<p> 
+					      		CONTENU DE LA MISSIONS A ECRIRE ICI
+					 	</p>
+					      </div>
+					     </div>
+					    </div>
+					  </div>
+					 -->
+
+					Il vous suffit de remplir le contenu de la mission et de supprimer les «  --> » de la fin pour les mettre à la première ligne afin d’obtenir : 
+					<!-- NOUVEAU MODAL : X = NUMERO DU MODAL ICI 16 -->
+
+					Modification des membres de l’association 
+					A la page Philosophie vous trouverez l’ensemble des membres de l’association avec leur nom et portrait. 
+					Dû à la succession des mandats vous pourrez avoir les modifiez suivants la procédure suivante. 
+					Dans le dossier site  allez ouvrir le fichier  philo.html
+					Prenons l’exemple de modification de président. Descendez à la ligne qui suit : 
+					<div class="col-md-6">
+						<img class="portrait-staff col-md-6" src="../images/julie.jpg" alt="Julie" title="Julie Labeyrie">
+						<h6>Julie Labeurie <br>Présidente</h6>
+					</div>
+
+
+
+
+
+					Modifiez aux emplacements en rouge : 
+					<div class="col-md-6">
+						<img class="portrait-staff col-md-6" src="../images/imageNouveauPres.jpg" alt="PrénomNouveauPresident" title="Prénom Nom ">
+						<h6>Prénom Nom<br>Président</h6>
+					</div>
+
+
+					De même pour tous les autres membres à modifier. Ne modifiez que les parties en rouge !
+					Modifications des partenaires
+					A la page Partenaires vous trouverez l’ensemble des sponsors de l’association avec leur nom et leur logo. 
+					Pour effectuer des modifications voici la procédure à suivre. 
+					Dans le dossier « site » allez ouvrir le fichier  partenaire.html 
+
+					Vous trouverez un dans le fichier un exemple de code, comme suit : 
+					<div class="row">
+						<div class="col-sm-4">
+							<a href="http://www.talents-partage.org/"><img src="/images/logo_talents_partage.jpg" class="img-rounded"/></a>	
+					</div>
+						<div class="col-sm-4">				        			
+							<a href="http://www.benjaminopticien.com/"><img src="/images/benjamin.jpg" class="img-rounded"/></a>	
+						</div>
+						<div class="col-sm-4">
+							<a href="http://www.fnac.com/"><img src="/images/logofnac.jpg" class="img-rounded"></a>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-3">
+							<p class="hidden-xs text-center">Talents & Partage</p> 
+						</div>	
+						<div class="col-sm-4 col-sm-offset-1">
+							<p class="hidden-xs text-center">Benjamin Opticien</p>
+						</div>
+						<div class="col-sm-4">
+							<p class="hidden-xs text-center">FNAC Montparnasse</p>
+						</div>								
+					</div>
+
+					Pour remplacer un partenaire par un autre
+
+					Exemple : remplacer la FNAC Montparnasse par IONIS. 
+					Vous enregistrez le logo de IONIS dans le dossier images sous le nom nomdelimageIONIS.jpg. 
+					Puis remplacer /images/logofnac.jpg par /images/nomdelimageIONIS.jpg
+					Puis remplacer FNAC Montparnasse par IONIS group. 
+					Et voilà !
+
+					Pour supprimer un partenaire 
+
+					Toujours à partir du code précédant on suppose maintenant que l’on souhaite retirer Benjamin Opticien. 
+					Sélectionner la partie suivante et supprimer la : 
+
+
+					<div class="col-sm-4">				        			
+							<a href="http://www.benjaminopticien.com/"><img src="/images/benjamin.jpg" class="img-rounded"/></a>	
+					</div>
+
+					De même pour la partie suivante : 
+					<div class="col-sm-4 col-sm-offset-1">
+							<p class="hidden-xs text-center">Benjamin Opticien</p>
+					</div>
+
+					Les partenaires situés sur la même ligne  se décaleront vers la gauche. 
+
+					Pour ajouter un partenaire
+
+					Il existe 2 cas : ajouter un partenaire sur une ligne incomplète ou alors sur une nouvelle ligne. 
+					Premier cas : ajout sur la même ligne 
+					Ajouter dans le code les parties en rouge comme suit.
+					<div class="row">
+						<div class="col-sm-4">
+							<a href="http://www.talents-partage.org/"><img src="/images/logo_talents_partage.jpg" class="img-rounded"/></a>	
+					</div>
+						<div class="col-sm-4">				        			
+							<a href="http://www.benjaminopticien.com/"><img src="/images/benjamin.jpg" class="img-rounded"/></a>	
+						</div>
+						<div class="col-sm-4">
+							<a href="adresseDuSponsor"><img src="/images/logoDuSponsor.jpg" class="img-rounded"></a>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-3">
+							<p class="hidden-xs text-center">Talents & Partage</p> 
+						</div>	
+						<div class="col-sm-4 col-sm-offset-1">
+							<p class="hidden-xs text-center">Benjamin Opticien</p>
+						</div>
+						<div class="col-sm-4">
+							<p class="hidden-xs text-center">NOM DU SPONSOR</p>
+						</div>								
+					</div>
+
+					Second cas : ajout sur une nouvelle ligne 
+
+					Voici le code à mettre à la suite du code précédent : 
+					    code existant
+					<div class="row">
+							<div class="col-sm-4">
+								<p class=" hidden-xs text-center">Fondation Solidarité Veolia (mécénat de compétence)</p>
+							</div>
+							<div class="col-sm-4">
+								<p class="hidden-xs text-center">Fondation pour la promotion de l'Homme</p>
+							</div>
+							<div class="col-sm-4">
+								<p class="hidden-xs text-center">Total</p>
+							</div>
+					</div> 
+
+
+					Code à mettre à la suite 
+
+					<div class="row">
+						<div class="col-sm-4">
+							<a href="http:ADRESSEMAIL"><img src="/images/IMAGEduLOGO.jpg" class="img-rounded img-center"/></a>	
+						</div>
+					</div>
+
+					<div class="row">
+							<div class="col-sm-4">
+								<p class=" hidden-xs text-center">NOM</p>
+						</div>
+					</div>  
+
+
+
+
+
+
+					Administrateur 
+					Cette section s’adresse à l’administrateur du site.  Si vous pouvez accepter un nouvel membre avec le statut administrateur et celui-ci pourra ensuite vous supprimer ou modifiez votre statut. Cette manipulation n’est conseillée qu’en cas de passation ou alors de changement d’administrateur. 
+					En allant sur votre compte, à l’onglet Mon Compte vous pouvez modifier l’adresse mail et le mot de passe associé de l’association. Ces informations servent à la gestion des emails envoyés depuis la boite mail. 
+
+
+                    </p>
+				      </div>
+			        </div>
+
+
+
+
+
 				<div class="tab-content" >
 					<div class="tab-pane active" id="new_news">
 						<div class="list-group" id="new_news_list" >
