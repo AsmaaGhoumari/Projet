@@ -3,11 +3,11 @@ var util = require("util");
 var url = require("url");
 var fs = require("fs");
 var nodemailer = require("nodemailer");
-//var db = require("./db.js");
+var formidable = require("formidable"); 
 var mail = require("./email.js");
-//var cookie=require("./cookie.js");
 var get = require("./get.js");
 var post = require("./post.js");
+
 
 
 /*Object user */
@@ -55,19 +55,36 @@ function () {
 *This method is used to determine the kind of request received 
 */
 rest_method :
- function(){
+    function(){
 
-        util.log(this.req.method);
+        //util.log(this.req.method);
 
         if (this.req.method == "GET"){
-            get.get(this.req, this.resp);} //this method is used to navigate on the web site
-        else if (this.req.method == "POST") {
-           post.post_method(this.req, this.resp);}
-         else {
+            get.get(this.req, this.resp); //this method is used to navigate on the web site
+        } else if (this.req.method == "POST") {
+            var reg = new RegExp("multipart/form-data", "g");
+            if(!reg.test(this.req.headers["content-type"])){
+                post.post_method(this.req, this.resp);
+            } else {
+                if (req.url == '/' && req.method.toLowerCase() == 'post') {
+                    // parse a file upload
+                    var form = new formidable.IncomingForm();
+                    form.parse(req, function(err, fields, files) {
+                        fs.rename(files.upload.path, "./files/"+ files.upload.name , "utf8", function (e) {
+                            if (e) console.log(e);
+                        });
+                        news.news_from_site(fields, files.upload.name);
+                        res.writeHead(200, {'content-type': 'text/plain'});
+                        res.end();
+                    });
+                    return;
+                }
+            }
+        } else {
             this.resp.writeHead(501, {"Content-Type": "application/json"}); 
             this.resp.write(JSON.stringify({message: "Not Implemented"})); 
-            this.resp.end();//fin 
+            this.resp.end(); 
             return;
         }
-},
+    },
 }; 

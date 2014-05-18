@@ -15,6 +15,9 @@ ind.on_click = function (ev) { //quand on clique, ev event
     }
 };
 
+/**
+*This method takes the inputs and gatheres them into the variable in order to send the post request
+*/
 ind.validate_login = function() {
     var mail = document.getElementsByClassName("input-mail")[0].value;
     var pw = document.getElementsByClassName("input-password")[0].value;
@@ -22,6 +25,9 @@ ind.validate_login = function() {
     ind.post(data, ind.resp_valid_login);
 };
 
+/**
+*This method defines the data variable taking the inputs
+*/
 ind.send_post2 = function() {
     var a = document.getElementsByClassName("inp1")[0].value;
     var b = document.getElementsByClassName("inp2")[0].value;
@@ -29,6 +35,9 @@ ind.send_post2 = function() {
     ind.post(data, ind.post2_back);
 };
 
+/**
+*This method returns the response 
+*/
 ind.resp_valid_login = function () {
     if (this.readyState == 4 && this.status == 200) {
         var r = this.responseText;
@@ -41,6 +50,9 @@ ind.resp_valid_login = function () {
     }
 };
 
+/**
+*The method displays the response
+*/
 ind.post2_back = function () {
     if (this.readyState == 4 && this.status == 200) {
         var r = this.responseText;

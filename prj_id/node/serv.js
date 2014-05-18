@@ -15,6 +15,5 @@ server.receive_request = function (req, resp) {
 };
 
 http.createServer(server.receive_request).listen(server.port, server.address);
-//TODO test if db exists
 		
 util.log("INFO - Server started, listening " + server.address + ":" + server.port);
