@@ -1,25 +1,26 @@
 <!DOCTYPE HTML>
 <html lang="fr">
 <head>
+	<title>Idées Madagascar</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<link href="http://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic" rel="stylesheet" type="text/css" />
-
-		
 	<link rel="stylesheet" href="/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="/css/bootstrap-theme.min.css" />
-		
 	<link rel="stylesheet" href="/assets/css/styles.css" />
 	<link rel="stylesheet" href="/css/style.css" />
+	<link rel="stylesheet" href="/css/admin.css" />
+
 	<script src="/js/jquery.min.js"></script>
 	<script src="/js/modal.js"></script>
 	<script src="/js/bootstrap.min.js"></script>	
+	<script src="/js/redac.js"></script>
+
 
 </head>	
 
-<body class=" background-picture"
-	<section id="redac"  class="main"> 
+<body >
 	<div class="container col-md-12">
 		<div class="row">			
 			<div class="col-sm-11 col-sm-offset-1 custom">
@@ -28,182 +29,105 @@
 				<ul class="nav nav-tabs">
 					<!--		  <li><a href="http://localhost:1337/">Retour</a></li>	-->
 					<li><a href="#write" data-toggle="tab">Ecrire un article</a></li>
-					<li class="active"><a href="#new_news" data-toggle="tab">Articles en attente</a></li>
-					<li><a href="#my_news" data-toggle="tab">Mes articles</a></li>
+					<li class="active"><a href="#my_news" data-toggle="tab">Mes Articles</a></li>
 					<li><a href="#my_account" data-toggle="tab">Mon compte</a></li>
-					<li><a href="#my_account" data-toggle="tab">Manuel d'aide</a></li>
-
 				</ul>
 
 				<!-- Tab panes -->
-				<div class="tab-content " >
-					<div class="tab-pane active" id="new_news">
-						<div class="list-group col-md-12" id="new_news_list"></div>
-					</div>
-					<div class="tab-pane " id="my_news">
-						
-						<!--<div class="list-group col-md-12" id="my_news_list" > -->
+				<div class="tab-content" >
+					<div class="tab-pane active" id="my_news">
+						<div class="panel-group" id="my_news_list">
 						</div>
 					</div>
-	
-					<div class="tab-pane " id="my_account"> </div>
-				</div>
-			</div>	
-			<div class="col-md-4"></div>
-		</div>
 
-<!--toutes les news de l'utilisateur-->
-		<div class="tab-pane " id="all_news" >
-						<input class="form-control" placeholder="Recherche" type="text" id="searchNews"/>
-						<div class="list-group" id="news_list" >
-							<br>
+					<div class="tab-pane " id="my_account"> 
+						<div class="row">
+							<div class="col-sm-2 col-sm-offset-10">
+								<button class="btn btn-danger" id="delete_account">Supprimer mon compte</button>
+							</div>
 						</div>
-		</div>
-
-<!--ecrire un nouvel article-->
-				<div class="tab-pane" id="write">
-							<div class="col-sm-5">				
-								<div class = "content style4" style="padding-top:20px;">
-									<div class="container small">
-										<form >
-											<div class="row half form-group">
-												<div class="6u"><input type="text" class="text" placeholder="TITRE" id="title_news"/></div>
-											</div>
-											<div class="row half  form-group">
-												<div class="12u"><textarea name="message" placeholder="CONTENU" id="message_news"></textarea></div>
-											</div>
-										</form>
-											<div class="row">
-												<div class="12u">
-													<ul class="actions">
-														<li><button class="button" id="send_news">Envoyer</button></li>	
-														<li><button  class="button reset" >Annuler</button></li>	
-													</ul>
-												</div>
-											</div>
+						<div class="row">
+							<div class="col-sm-5 col-sm-offset-1">
+								<form role="form">
+									<br>
+									<div class="form-group">
+										<label for="n_name">Modifez mon nom</label>
+										<input type="text" class="form-control" id="n_name">
+									</div>
+									<div class="form-group">
+										<label for="f_name">Modifiez mon prénom</label>
+										<input type="text" class="form-control" id="f_name">
+									</div>
+									<div class="form-group">
+										<label for="mail">Modifiez mon adresse mail</label>
+										<input type="email" class="form-control" id="mail" disabled>
+									</div>
+									<div class="form-group">
+										<label for="pwd">Modifiez mon mot de passe</label>
+										<input type="password" class="form-control" id="pwd">
+									</div>	
+									<br>		 
+									<br>
+								</form>		
+								<button class="btn btn-default" id="send_m">Valider</button>
+								<button class="btn btn-default reset">Annuler</button>	
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="write">
+						<div class="col-sm-5 ">				
+							<div class = "content style4" style="padding-top:20px;">
+								<div class="container small">
+									<form >
+										<div class="row half form-group">
+											<div class="6u"><input type="text" class="text" placeholder="TITRE" id="title_news"/></div>
+										</div>
+										<div class="row half  form-group">
+											<div class="12u"><textarea name="message" placeholder="CONTENU" id="message_news"></textarea></div>
+										</div>
+									</form>
+									<div class="row">
+										<div class="12u">
+											<ul class="actions">
+												<li><button class="button" id="send_news">Envoyer</button></li>	
+												<li><button  class="button reset" >Annuler</button></li>	
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-
-<!--compte
-	<div class="row">
-		<div class="col-sm-2 col-sm-offset-10">
-			<button class="btn btn-default" id="send">Supprimer mon compte</button>
-		</div>
-	</div>
-
-
-	<div class="row">
-				<div class="col-sm-5 col-sm-offset-1">
-					<form>
-						<br>
-						<div class="form-group">
-						    <label for="n_name">Modifiez mon nom</label>
-						    <input type="text" class="form-control" id="n_name">
-					  	</div>
-					  	<div class="form-group">
-						    <label for="f_name">Modifiez mon prénom</label>
-						    <input type="text" class="form-control" id="f_name">
-					  	</div>
-					  	<div class="form-group">
-						    <label for="mail">Modifiez mon adresse mail</label>
-						    <input type="email" class="form-control" id="mail">
-					 	</div>
-					  	<div class="form-group">
-						    <label for="pwd">Modifiez mon mot de passe</label>
-						    <input type="password" class="form-control" id="pwd">
-					  	</div>	
-					  	<label class="checkbox-inline">
-							  <input type="radio" name="statu"  value="0"> Elève
-						</label>
-						<label class="checkbox-inline">
-							  <input type="radio" name="statu"  value="1"> Membre de l'Association
-						</label>
-						<label class="checkbox-inline">
-							  <input type="radio" name="statu"  value="0"> Entreprise
-						</label>
-						<label class="checkbox-inline">
-							  <input type="radio" name="statu"  value="0">Autre
-						</label>
-						<br>		 
-					</form>
-					<br>
-					  	<button class="btn btn-default" id="send">Valider</button>
-					  	<button class="btn btn-default" id="send">Annuler</button>		
+					</div>
+				</div>
 			</div>
-	 </div>
+			<div class="modal fade" id="modif_news" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<p>Modifier news</p>
+							<form>
+								<div class="input-group">
+									<span class="input-group-addon">Titre</span>
+									<input type="text" class="form-control" id="titre_news" required />
+								</div>
+								<div class="input-group">
+									<span class="input-group-addon">Message</span>
+									<input type="text" class="form-control" id="msg_news" required />
+								</div>
+							</form>
+							<div class="submit box-center">
+								<button type="submit" value="Valider" class="btn validate" id="valid_modif_news" >Valider</button>
+								<button type="submit" value="Annuler" class="btn validate" data-dismiss="modal" >Annuler</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="col-md-2"></div>
+	</div>
+</div>
 
--->
-
-
-	
-	<div class = "row">
-			<div class = "col-xs-7 col-xs-offset-2">
-	<!--My news			<div class="panel-group" id="accordion">
-					<div class="panel panel-default">
-					    <div class="panel-heading">
-					      <h4 class="panel-title">
-					        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-					         Titre #1  - Date 
-					        </a>
-					      </h4>
-					    </div>
-						<div id="collapseOne" class="panel-collapse collapse in ">
-     						<div class="panel-body">
-        					<br><button class="btn btn-default" id="send">Supprimer</button><br>
-      						</div>
-    					</div>
-  					</div>
-
-
-					<div class="panel panel-default">
-					    <div class="panel-heading">
-					      <h4 class="panel-title">
-					        <a data-toggle="collapse" data-parent="#accordion" href="#collapseborbj">
-					         Titre #1bis  - Date 
-					        </a>
-					      </h4>
-					    </div>
-						<div id="collapseborbj" class="panel-collapse collapse in">
-     						<div class="panel-body">
-        					<br><button class="btn btn-default" id="send">Supprimer</button><br>
-      						</div>
-    					</div>
-  					</div>
-
-  					<div class="panel panel-default">
-					    <div class="panel-heading">
-					      <h4 class="panel-title">
-					        <a data-toggle="collapse" data-parent="#accordion" href="#collapseDeux">
-					          Titre #2 - Date
-					        </a>
-					       </h4>
-					    </div>
-						<div id="collapseDeux" class="panel-collapse collapse in">
-     						<div class="panel-body">
-        					<br><button class="btn btn-default" id="send">Supprimer</button><br>
-      						</div>
-    					</div>
-  					</div>
-
-  					<div class="panel panel-warning">
-					    <div class="panel-heading">
-					      <h4 class="panel-title">
-					        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTrois">
-					          Titre #3 - Date
-					        </a>
-					        </h4>
-					    </div>
-						<div id="collapseTrois" class="panel-collapse collapse in">
-     						<div class="panel-body">
-							<br><button class="btn btn-default" id="send">Supprimer</button><br>
-      						</div>
-    					</div>-->
-  					
-  					</div>
-
-
-  		
-	</body>
+</body>
 </html>

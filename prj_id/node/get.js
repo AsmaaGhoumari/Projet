@@ -27,6 +27,7 @@ get_router = function (req, resp) {
 
 exports.get = function (req, resp) {
     var inc_request = new get_router(req, resp);
+
     inc_request.run(); 
     inc_request = null; 
 };
@@ -72,7 +73,7 @@ read_file :
 load_file:
     function () {
         var _this = this; 
-		console.log("=========> " + this.filetype + " " + this.path);
+		//console.log("=========> " + this.filetype + " " + this.path);
         fs.exists(this.path, function (ex) { 
             if (ex) { 
                 fs.readFile(_this.path, function (e, d) { 
@@ -98,7 +99,7 @@ load_file:
 */
 file_processing:
     function () {
-		console.log("=> " + this.filetype + " " + this.path);
+		//console.log("=> " + this.filetype + " " + this.path);
         if (this.filetype == "htm") {
             this.resp.writeHead(200, { "Content-Type" : "text/html"});
         } else if (this.image_file.indexOf(this.filetype) >= 0) {

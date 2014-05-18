@@ -5,8 +5,8 @@ var nodemailer = require("nodemailer");
  var smtpTransport = nodemailer.createTransport("SMTP",{
    service: "Gmail",
    auth: {
-       user: "asmaaghoumari@gmail.com",
-       pass: "ghoumariasmaa92" 
+       user: "asmaa.ghoumari@gmail.com",//"contact@idees.asso.fr",
+       pass: "suricate<3"//"spirougs" 
    }
 });
 
@@ -18,18 +18,11 @@ var nodemailer = require("nodemailer");
 *@param txt (string) message
 *@param cb (function) callback function 
 */
-exports.sendMail = function (f, t , s, txt, cb) {
+exports.sendMail = function ( t , s, txt, cb) {
+    var f = "asmaa.ghoumari@gmail.com"; 
     var data = {from: f, to: t, subject: s, text: txt};
-    //console.log(data);
-   smtpTransport.sendMail(data, cb);
+    smtpTransport.sendMail(data, cb);
 };
-
-/**
-*This method is used to check if the email has been properly sent 
-*@param data (object) the data object 
-*@param cb (function) the callback function 
-*/
-//smtpTransport.sendMail(data, cb); 
 
 /**
 *This method is used to create a callback function 
@@ -43,5 +36,3 @@ cb = function (e, r){
         util.log("INFO - Message sent : " + r.message.substring(0,50));
 }};
 
-var bob = "azeazxeza@azeaze.rg";
-//srouter.sendMail(bob, bobby, coucou, azert, srouter.ex_cb);

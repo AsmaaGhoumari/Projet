@@ -8,7 +8,6 @@
 	<link href="http://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="/css/bootstrap-theme.min.css" />
-	<link rel="stylesheet" href="/css/philo.css" />
 	<link rel="stylesheet" href="/assets/css/styles.css" />
 	<link rel="stylesheet" href="/css/style.css" />
 	<link rel="stylesheet" href="/css/admin.css" />
@@ -21,8 +20,7 @@
 
 </head>	
 
-<body class=" background-picture" >
-	<section id="admin"  class="main">
+<body >
 	<div class="container col-md-12">
 		<div class="row">			
 			<div class="col-sm-11 col-sm-offset-1 custom">
@@ -30,289 +28,27 @@
 				<!-- Nav tabs -->
 				<ul class="nav nav-tabs">
 					<!--		  <li><a href="http://localhost:1337/">Retour</a></li>	-->
-					<li class="active"><a href="#new_news" data-toggle="tab">Article proposé</a></li>
-					<li><a href="#write" data-toggle="tab">Ecrire un article</a></li>
+					<li class="active"><a href="#new_news" data-toggle="tab">Nouvel Article</a></li>
 					<li><a href="#all_news" data-toggle="tab">Tous les articles</a></li>
 					<li><a href="#new_user" data-toggle="tab">Nouveaux membres</a></li>
 					<li><a href="#all_user" data-toggle="tab">Tous les membres</a></li>
 					<li><a href="#my_account" data-toggle="tab">Mon compte</a></li>
-					<li><a href="#manual" data-toggle="tab">Manuel d'aide</a></li>
-					
+					<li><a href="#write" data-toggle="tab">Ecrire un article</a></li>
 				</ul>
 
 				<!-- Tab panes -->
-
-				<div class="tab-content" >
-					<div class="tab-pane"id="manual">
-				<P>
-					Table des matières<br>
-					<br>
-					Introduction<br>
-						<br>
-					Technologies et liens utiles<br>	
-					<br>
-					Quels sont les acteurs de ce site ?	<br>
-					<br>
-					Droits d’accès	<br>
-					<br>
-					Ajout de missions<br>
-					<br>
-					Modification des membres de l’association<br>
-					<br>
-					Modifications des partenaires<br>
-					<br>
-					Pour remplacer un partenaire par un autre<br>
-					<br>
-					Pour supprimer un partenaire<br>
-					<br>
-					Pour ajouter un partenaire<br>
-					<br>
-					Administrateur	<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					Introduction<br>
-
-					Ce manuel pratique a pour but d’expliquer le fonctionnement du site et de permettre à l’équipe de bénévoles d’Idées Madagascar de le maitriser au mieux.<br>
-					Attention certaines parties expliquent comment modifier des parties du site, il ne faut modifier QUE les endroits indiqués comme illustrés dans les exemples ! <br> 
-
-					<br>
-					<br>
-
-
-					Technologies et liens utiles <br>
-
-					Le site web a été développé en HTML5 à travers le framework Bootstrap pour la gestion du css c’est-à-dire la gestion de l’apparence des divers éléments composant la page internet. <br>
-					Bootstrap vous permet de gérer votre page comme une grille où vous organisez les éléments comme des blocs. Pour plus de détails voici le lien vers le site expliquant en détails tout son fonctionnement : http://getbootstrap.com/<br>
-
-					Si vous rencontrez des problèmes avec le HTML ou le css voici un site de tutorat : http://www.w3schools.com/ ou encore http://fr.openclassrooms.com/informatique/html/cours<br>
-					<br>
-
-
-					Quels sont les acteurs de ce site ? <br>
-					Les visiteurs (internes ou externes à l’école)… et vous bien sûr !! <br>
-					Les visiteurs peuvent « surfer » sur le site et vous envoyer un mail pour toute question. <br>
-					De plus les membres de l’association inscris sur le site peuvent poster des articles qui apparaitront sur la page « news » et qui vous permettront  de tenir les visiteurs tels que les sponsors,  informés. <br>
-					<br>
-
-					Droits d’accès<br>
-					Tous les membres n’ont pas les mêmes droits d’accès. En effet il existe les rôles de rédacteur et d’administrateur. <br>
-					Les rédacteurs peuvent écrire des articles qui passent par la validation de l’administrateur avant publication sur le site. 
-					L’administrateur peut modifier, ajouter ou supprimer des rédacteurs et des inscrits. <br>
-					<br>
-					Ajout de missions<br>
-
-					Allez dans le dossier site, ouvrez le fichier mission.html. <br>
-					Placez-vous à la suite du code suivant  : <br>
-					….
-					&lt button class="btn_mission butt12" type="button" id="bouton12" role="button" data-toggle="modal" data-target="#myModal11"&gt Mission 2009&lt/button><br>
-						     &ltbutton class="btn_mission butt13" type="button" id="bouton13" role="button" data-toggle="modal" data-target="#myModal12">Mission 2010&lt/button><br>
-						     &ltbutton class="btn_mission butt14" type="button" id="bouton14" role="button" data-toggle="modal" data-target="#myModal13">Mission 2011&lt/button><br>
-						     &ltbutton class="btn_mission butt15" type="button" id="bouton15" role="button" data-toggle="modal" data-target="#myModal14">Mission 2012&lt/button><br>
-						     &ltbutton class="btn_mission butt16" type="button" id="bouton16" role="button" data-toggle="modal" data-target="#myModal15">Mission 2013&lt/button><br>
-						     &ltbutton class="btn_mission butt17" type="button" id="bouton17" role="button" data-toggle="modal" data-target="#myModal16">Mission 2014&lt/button><br>
-					
-							
-					AJOUTER LE CODE QUI VA SUIVRE ICI<br>
-
-					&lt/span>		<br>
-					&lt!-- Footer --><br>
-					<br>
-					Ajouter à cet emplacement :<br>
-					&ltbutton class="btn_mission buttX" type="button" id="boutonX" role="button" data-toggle="modal" data-target="#myModal(X-1)">Mission ANNEEYYYY&lt/button><br>
-					Puis descendez à la fin du fichier vous trouverez les lignes suivantes : <br>
-					&lt!-- NOUVEAU MODAL : X = NUMERO DU MODAL ICI 16<br>
-					     &ltdiv class="modal fade" id="myModal16" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><br>
-					         &ltdiv class="modal-dialog"><br>
-					              &ltdiv class="modal-content"><br>
-					                  &ltdiv class="modal-header"><br>
-					                      &ltbutton type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;&lt/button>
-					                             &lth4 class="modal-title" id="myModalLabel">Projets réalisés&lt/h4>
-					                 &lt/div>
-					            &ltdiv class="modal-body">
-					      	
-					      		CONTENU DE LA MISSIONS A ECRIRE ICI<br>
-					 
-					      &lt/div><br>
-					     &lt/div><br>
-					    &lt/div><br>
-					  &lt/div><br>
-					 --><br>
-
-					Il vous suffit de remplir le contenu de la mission et de supprimer les «  --> » de la fin pour les mettre à la première ligne afin d’obtenir : <br>
-					&lt!-- NOUVEAU MODAL : X = NUMERO DU MODAL ICI 16 --><br>
-					<br>
-					Modification des membres de l’association <br>
-					A la page Philosophie vous trouverez l’ensemble des membres de l’association avec leur nom et portrait. <br>
-					Dû à la succession des mandats vous pourrez avoir les modifiez suivants la procédure suivante. <br>
-					Dans le dossier site  allez ouvrir le fichier  philo.html<br>
-					Prenons l’exemple de modification de président. Descendez à la ligne qui suit : <br>
-					&ltdiv class="col-md-6"><br>
-						&ltimg class="portrait-staff col-md-6" src="../images/julie.jpg" alt="Julie" title="Julie Labeyrie"><br>
-						&lth6>Julie Labeurie <br>Présidente&lt/h6><br>
-					&lt/div><br>
-
-
-					<br>
-
-
-					Modifiez aux emplacements en rouge : <br>
-					&ltdiv class="col-md-6"><br>
-						&ltimg class="portrait-staff col-md-6" src="../images/imageNouveauPres.jpg" alt="PrénomNouveauPresident" title="Prénom Nom "><br>
-						&lth6>Prénom Nom<br>Président&lt/h6><br>
-					&lt/div><br>
-
-
-					De même pour tous les autres membres à modifier. Ne modifiez que les parties en rouge !<br>
-					Modifications des partenaires<br>
-					A la page Partenaires vous trouverez l’ensemble des sponsors de l’association avec leur nom et leur logo. <br>
-					Pour effectuer des modifications voici la procédure à suivre. <br>
-					Dans le dossier « site » allez ouvrir le fichier  partenaire.html <br>
-
-					Vous trouverez un dans le fichier un exemple de code, comme suit : <br>
-					&ltdiv class="row"><br>
-						&ltdiv class="col-sm-4"><br>
-							&lta href="http://www.talents-partage.org/">&ltimg src="/images/logo_talents_partage.jpg" class="img-rounded"/>&lt/a>	<br>
-					&lt/div><br>
-						&ltdiv class="col-sm-4"><br>				        			
-							&lta href="http://www.benjaminopticien.com/">&ltimg src="/images/benjamin.jpg" class="img-rounded"/>&lt/a>	<br>
-						&lt/div><br>
-						&ltdiv class="col-sm-4"><br>
-							&lta href="http://www.fnac.com/">&ltimg src="/images/logofnac.jpg" class="img-rounded">&lt/a><br>
-						&lt/div><br>
-					&lt/div><br>
-					<br>
-					&ltdiv class="row"><br>
-						&ltdiv class="col-sm-3"><br>
-							&ltp class="hidden-xs text-center">Talents & Partage&lt/p> <br>
-						&lt/div><br>	
-						&ltdiv class="col-sm-4 col-sm-offset-1"><br>
-							&ltp class="hidden-xs text-center">Benjamin Opticien&lt/p><br>
-						&lt/div><br>
-						&ltdiv class="col-sm-4"><br>
-							&ltp class="hidden-xs text-center">FNAC Montparnasse&lt/p><br>
-						&lt/div><br>								
-					&lt/div><br>
-					<br>
-					Pour remplacer un partenaire par un autre<br>
-					<br>
-					Exemple : remplacer la FNAC Montparnasse par IONIS. <br>
-					Vous enregistrez le logo de IONIS dans le dossier images sous le nom nomdelimageIONIS.jpg.<br> 
-					Puis remplacer /images/logofnac.jpg par /images/nomdelimageIONIS.jpg<br>
-					Puis remplacer FNAC Montparnasse par IONIS group. <br>
-					Et voilà !<br>
-					<br>
-					Pour supprimer un partenaire <br>
-					<br>
-					Toujours à partir du code précédant on suppose maintenant que l’on souhaite retirer Benjamin Opticien. 
-					Sélectionner la partie suivante et supprimer la : <br>
-					<br>
-
-					&ltdiv class="col-sm-4"><br>				        			
-							&lta href="http://www.benjaminopticien.com/">&ltimg src="/images/benjamin.jpg" class="img-rounded"/>&lt/a>	<br>
-					&lt/div><br>
-
-					De même pour la partie suivante : <br>
-					&ltdiv class="col-sm-4 col-sm-offset-1"><br>
-							&ltp class="hidden-xs text-center">Benjamin Opticien&lt/p><br>
-					&lt/div><br>
-
-					Les partenaires situés sur la même ligne  se décaleront vers la gauche.<br> 
-					<br>
-					Pour ajouter un partenaire<br>
-					<br>
-					Il existe 2 cas : ajouter un partenaire sur une ligne incomplète ou alors sur une nouvelle ligne.<br> 
-					Premier cas : ajout sur la même ligne<br> 
-					Ajouter dans le code les parties en rouge comme suit.<br>
-					&ltdiv class="row"><br>
-						&ltdiv class="col-sm-4"><br>
-							&lta href="http://www.talents-partage.org/">&ltimg src="/images/logo_talents_partage.jpg" class="img-rounded"/>&lt/a>	<br>
-					&lt/div><br>
-						&ltdiv class="col-sm-4">	<br>			        			
-							&lta href="http://www.benjaminopticien.com/">&ltimg src="/images/benjamin.jpg" class="img-rounded"/>&lt/a><br>	
-						&lt/div><br>
-						&ltdiv class="col-sm-4"><br>
-							&lta href="adresseDuSponsor">&ltimg src="/images/logoDuSponsor.jpg" class="img-rounded">&lt/a><br>
-						&lt/div><br>
-					&lt/div><br>
-					<br>
-					&ltdiv class="row"><br>
-						&ltdiv class="col-sm-3"><br>
-							&ltp class="hidden-xs text-center">Talents & Partage&lt/p> <br>
-						&lt/div>	<br>
-						&ltdiv class="col-sm-4 col-sm-offset-1"><br>
-							&ltp class="hidden-xs text-center">Benjamin Opticien&lt/p><br>
-						&lt/div><br>
-						&ltdiv class="col-sm-4"><br>
-							&ltp class="hidden-xs text-center">NOM DU SPONSOR&lt/p><br>
-						&lt/div><br>								
-					&lt/div><br>
-					<br>
-					Second cas : ajout sur une nouvelle ligne <br>
-					<br>
-					Voici le code à mettre à la suite du code précédent : <br>
-					    code existant<br>
-					&ltdiv class="row"><br>
-							&ltdiv class="col-sm-4"><br>
-								&ltp class=" hidden-xs text-center">Fondation Solidarité Veolia (mécénat de compétence)&lt/p><br>
-							&lt/div><br>
-							&ltdiv class="col-sm-4"><br>
-								&ltp class="hidden-xs text-center">Fondation pour la promotion de l'Homme&lt/p><br>
-							&lt/div><br>
-							&ltdiv class="col-sm-4"><br>
-								&ltp class="hidden-xs text-center">Total&lt/p><br>
-							&lt/div><br>
-					&lt/div><br> 
-
-					<br>
-					Code à mettre à la suite <br>
-					<br>
-					&ltdiv class="row"><br>
-						&ltdiv class="col-sm-4"><br>
-							&lta href="http:ADRESSEMAIL">&ltimg src="/images/IMAGEduLOGO.jpg" class="img-rounded img-center"/>&lt/a><br>	
-						&lt/div><br>
-					&lt/div><br>
-					<br>
-					&ltdiv class="row"><br>
-							&ltdiv class="col-sm-4"><br>
-								&ltp class=" hidden-xs text-center">NOM&lt/p><br>
-						&lt/div><br>
-					&lt/div>  <br>
-
-					<br>
-					<br>
-					Administrateur <br>
-					Cette section s’adresse à l’administrateur du site.  Si vous pouvez accepter un nouvel membre avec le statut administrateur et celui-ci pourra ensuite vous supprimer ou modifiez votre statut. Cette manipulation n’est conseillée qu’en cas de passation ou alors de changement d’administrateur. <br>
-					En allant sur votre compte, à l’onglet Mon Compte vous pouvez modifier l’adresse mail et le mot de passe associé de l’association. Ces informations servent à la gestion des emails envoyés depuis la boite mail. <br>
-
-					<br>
-                    </P>
-				     
-
-
-<!------------------------------------------------Fin manuel --------------------------------------------------------------------------->
-
-
 				<div class="tab-content" >
 					<div class="tab-pane active" id="new_news">
 						<div class="list-group" id="new_news_list" >
 						</div>
 					</div>
 					<div class="tab-pane " id="all_news" >
-						<input class="form-control" placeholder="Recherche" type="text" id="searchNews"/>
+						<input class="form-control" placeholder="Recherche" type="search" id="searchNews"/>
 						<div class="list-group" id="news_list" >
 							<br>
 						</div>
 					</div>
-					<!--<div class="tab-pane " id="my_news">
-						<div class="list-group" id="my_news_list" >
-						</div>
-					</div> -->
 					<div class="tab-pane " id="new_user">
-						<!--	<div class = "row">
-						<div class = "col-sm-10 col-sm-offset-2"> -->
 							<table class="table table-striped">
 								<thead>
 									<tr>		          	
@@ -327,8 +63,6 @@
 								<tbody id='table_new_users'>
 								</tbody> 
 							</table>
-					<!--		</div>
-				</div>  -->		
 			</div>
 			<div class="tab-pane " id="all_user" >	
 				<div class = "row col-md-12">
@@ -355,7 +89,7 @@
 			<div class="tab-pane " id="my_account"> 
 				<div class="row">
 					<div class="col-sm-2 col-sm-offset-10">
-						<button class="btn btn-default" id="delete_account">Supprimer mon compte</button>
+						<button class="btn btn-danger" id="delete_account">Supprimer mon compte</button>
 					</div>
 				</div>
 				<div class="row">
@@ -372,24 +106,12 @@
 							</div>
 							<div class="form-group">
 								<label for="mail">Modifiez mon adresse mail</label>
-								<input type="email" class="form-control" id="mail">
+								<input type="email" class="form-control" id="mail" disabled>
 							</div>
 							<div class="form-group">
 								<label for="pwd">Modifiez mon mot de passe</label>
 								<input type="password" class="form-control" id="pwd">
 							</div>	
-							<label class="checkbox-inline">
-								<input type="radio" name="statu"  value="0"> Elève
-							</label>
-							<label class="checkbox-inline">
-								<input type="radio" name="statu"  value="1"> Membre de l'Association
-							</label>
-							<label class="checkbox-inline">
-								<input type="radio" name="statu"  value="0"> Entreprise
-							</label>
-							<label class="checkbox-inline">
-								<input type="radio" name="statu"  value="0">Autre
-							</label>
 							<br>		 
 							<br>
 						</form>		
@@ -403,11 +125,11 @@
 							<br>
 							<div class="form-group">
 								<label for="supa_mail">Modifez adresse mail de l'Association</label>
-								<input type="text" class="form-control" id="supa_mail">
+								<input type="email" class="form-control" id="supa_mail" />
 							</div>
 							<div class="form-group">
 								<label for="supa_pwd">Modifiez le mot de passe</label>
-								<input type="password" class="form-control" id="supa_pwd">
+								<input type="password" class="form-control" id="supa_pwd" />
 							</div>
 							<br>	
 						</form>
@@ -444,24 +166,61 @@
 	</div>
 
 
-	<div class="modal fade" id="myModalSupAd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade" id="modif_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-body">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<p>Déja inscrit ?</p>
-					<div id="message"></div>
-					<div class="input-group">
-						<span class="input-group-addon">Email</span>
-						<input type="text" class="newEmail form-control" placeholder="Email" id="login" required />
-					</div>
-					<div class="input-group">
-						<span class="input-group-addon">Mot De Passe</span>
-						<input type="password" class="newPwd form-control" placeholder="Mot de passe" id="pwd" required /> 
-					</div>
+					<p>Modifier user</p>
+					<form>
+						<div class="input-group">
+							<span class="input-group-addon">Nom</span>
+							<input type="text" class="form-control" id="nom_user" required />
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon">Prenom</span>
+							<input type="text" class="form-control" id="prenom_user" required />
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon">Email</span>
+							<input type="email" class="form-control" id="mail_user" required disabled/>
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon">Statut</span>
+							<select name="select" id="select">
+							  <option value="0">Autre</option> 
+							  <option value="1">Rédacteur</option>
+							  <option value="2">Administrateur</option>
+							</select> 
+						</div>
+					</form>
 					<div class="submit box-center">
-						<button type="submit" value="Valider" class="supA valid btn validate" >Valider</button>
-						<button type="submit" value="Annuler" class="supA cancel btn validate" data-dismiss="modal" >Annuler</button>
+						<button type="submit" value="Valider" class="btn validate" id="valid_modif" >Valider</button>
+						<button type="submit" value="Annuler" class="btn validate" data-dismiss="modal" >Annuler</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modif_news" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<p>Modifier news</p>
+					<form>
+						<div class="input-group">
+							<span class="input-group-addon">Titre</span>
+							<input type="text" class="form-control" id="titre_news" required />
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon">Message</span>
+							<input type="text" class="form-control" id="msg_news" required />
+						</div>
+					</form>
+					<div class="submit box-center">
+						<button type="submit" value="Valider" class="btn validate" id="valid_modif_news" >Valider</button>
+						<button type="submit" value="Annuler" class="btn validate" data-dismiss="modal" >Annuler</button>
 					</div>
 				</div>
 			</div>
@@ -469,8 +228,8 @@
 	</div>
 </div>	
 <div class="col-md-2"></div>
-</div><!--row-->
 </div>
-</section>
+</div>
+
 </body>
 </html>
