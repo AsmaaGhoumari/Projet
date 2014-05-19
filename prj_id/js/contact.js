@@ -1,4 +1,3 @@
-
 var contact = {};
 
 contact.start = function () {
@@ -17,9 +16,9 @@ contact.send = function ()  {
 contact.retour_cb = function(){
 	if (this.readyState == 4 ){
 		if(this.status == 200 ) {
-			document.getElementById("message").innerHTML = '<div class="alert alert-success"><strong>Success, Envoi réussi</strong></div>';
+			document.getElementById("message").innerHTML = '<div class="alert alert-success"><strong>Envoi réussi</strong></div>';
 	 	}else{
-			document.getElementById("message").innerHTML = '<div class="alert alert-danger"><strong>Error, Envoi échoué</strong></div>';
+			document.getElementById("message").innerHTML = '<div class="alert alert-danger"><strong>Envoi échoué</strong></div>';
 		}
 		setTimeout(function(){ document.getElementById("message").innerHTML = '';}, 3000);
 	}
