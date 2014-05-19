@@ -160,7 +160,14 @@
 
 	 	text-align: center;
 		color: black;
+	}
+	p2{
+		color: blue;
 
+
+	}
+	h7{
+		color: red;
 	}
 	header
 	{
@@ -388,6 +395,7 @@
 
 		form
 		{
+			margin-top:-7px;
 		}
 		
 			form .actions
@@ -1456,6 +1464,7 @@
 		background-position: center center;
 		text-align: center;
 		background-repeat: no-repeat;
+		width: 100%;
 	}
 	
 	#fourth	{
@@ -1496,12 +1505,19 @@
 		margin-left: 14em;
 		border: 3px rgb(229, 240, 237) ridge;
 		overflow:scroll;
+		overflow-x: hidden;
 	}
+
+	.center-nav-philo {
+		margin: auto;
+		width: 100%;
+	}
+
 	.bureau{
 		height: 550px;
 		width: 630px;
 		margin-left: 1062;
-		margin-top: -549;
+		margin-top: -557;
 		border: 3px rgb(229, 240, 237) ridge;
 	}
 	.portrait{
