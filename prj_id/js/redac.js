@@ -92,7 +92,8 @@ redac.send_news=function(){
 redac.delete_account = function(){
 	if (window.confirm("Etes vous sur ?")) {
 		var data = {action : "delete_user"}; 
-		redac.post(data, redac.retour_cb); //retour un peu generique
+		redac.post(data, redac.retour_cb); 
+		self.location.href="../index.html";
 	}
 };
 
