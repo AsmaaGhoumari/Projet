@@ -1436,8 +1436,9 @@
 	
 	#philo {
 			padding-top: 0px;
-		background: url('../images/fond7bis.JPG');
+		background: url('../images/fondPhiloBis.JPG');
 		background-size: cover;
+		padding-bottom: 210px;
 
 	}
 
